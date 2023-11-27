@@ -15,16 +15,16 @@ namespace AppDiet.Domain.Entities
         public double AlinanToplamProtein { get; set; }
         public double AlinanToplamKarbonhidrat { get; set; }
         public Kahvalti Kahvalti { get; set; }
-        public int KahvaltiId { get; set; }
+        public int? KahvaltiID { get; set; }
 
         public OgleYemegi OgleYemegi { get; set; }
-        public int OgleYemegiId { get; set; }
+        public int? OgleYemegiID { get; set; }
 
         public AksamYemegi AksamYemegi { get; set; }
-        public int AksamYemegiId { get; set; }
+        public int? AksamYemegiID { get; set; }
 
         public AraOgun AraOgun { get; set; }
-        public int AraOgunId { get; set; }
+        public int? AraOgunID { get; set; }
 
         public Kullanici Kullanici { get; set; }
         public int KullaniciId { get; set; }

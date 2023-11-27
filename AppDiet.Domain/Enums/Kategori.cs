@@ -17,6 +17,7 @@ namespace AppDiet.Domain.Enums
         Tatli,
         Atistirmalik,
         Kahvaltilik,
-        Fastfood
+        Fastfood,
+        Aperatif
     };
 }

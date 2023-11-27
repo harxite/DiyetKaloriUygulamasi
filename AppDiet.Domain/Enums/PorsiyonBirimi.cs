@@ -11,6 +11,7 @@ namespace AppDiet.Domain.Enums
         Porsiyon = 1,
         Adet,
         Gram,
+        Kase,
         Dilim
     };
 }
