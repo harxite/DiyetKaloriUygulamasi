@@ -10,10 +10,11 @@ namespace AppDiet.Domain.Entities
     {
         public int GunlukDetayId { get; set; }
         public int GunlukKaloriIhtiyaci { get; set; }
-        public int AlinanToplamKalori { get; set; }
-        public double AlinanToplamYag { get; set; }
-        public double AlinanToplamProtein { get; set; }
-        public double AlinanToplamKarbonhidrat { get; set; }
+        public int AlinanToplamKalori { get; set; } = 0;
+        public double AlinanToplamYag { get; set; } = 0;
+        public double AlinanToplamProtein { get; set; } = 0;
+        public double AlinanToplamKarbonhidrat { get; set; } = 0;   
+        public DateTime OlusturulmaTarihi { get; set; } = DateTime.Now;
         public Kahvalti Kahvalti { get; set; }
         public int? KahvaltiID { get; set; }
 

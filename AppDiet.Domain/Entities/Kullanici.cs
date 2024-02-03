@@ -17,10 +17,11 @@ namespace AppDiet.Domain.Entities
         public double Kilo { get; set; }
         public AktiviteDuzeyi AktiviteDuzeyi  { get; set; }
         public double HedefKilo { get; set; }
-        public KullaniciTipi KullaniciTipi { get; set; }
+        public KullaniciTipi KullaniciTipi { get; set; } = KullaniciTipi.Standart;
         public string Email { get; set; }
         public string Sifre { get; set; }
+        public bool AktifMi { get; set; } = true;
         public ICollection<GunlukDetay> GunlukDetaylar { get; set; }
-
+       
     }
 }

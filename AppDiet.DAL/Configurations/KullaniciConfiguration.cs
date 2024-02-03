@@ -22,8 +22,25 @@ namespace AppDiet.DAL.Configurations
             builder.Property(x => x.Boy).HasMaxLength(3);
             builder.Property(x => x.Kilo).HasMaxLength(3);
             builder.Property(x => x.HedefKilo).HasMaxLength(3);
-           
+
+            builder.HasData(
+                new Kullanici
+                {
+                    ID = 1,
+                    Ad = "Admin",
+                    Soyad = "Admin",
+                    Yas = 25,
+                    Cinsiyet = Domain.Enums.Cinsiyet.Erkek,
+                    Boy = 180,
+                    Kilo = 70,
+                    AktiviteDuzeyi = Domain.Enums.AktiviteDuzeyi.Yuksek,
+                    HedefKilo = 71,
+                    KullaniciTipi = Domain.Enums.KullaniciTipi.Admin,
+                    Email = "admin@dietapp.com",
+                    Sifre = "admin54321",
+                    Durum = Domain.Enums.Durum.Eklendi,
+                    AktifMi = true
+                });
         }
     }
-
 }

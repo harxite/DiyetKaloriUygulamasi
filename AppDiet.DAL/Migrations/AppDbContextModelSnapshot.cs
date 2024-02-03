@@ -22,21 +22,6 @@ namespace AppDiet.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("AksamYemegiBesin", b =>
-                {
-                    b.Property<int>("AksamYemekleriID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BesinlerID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AksamYemekleriID", "BesinlerID");
-
-                    b.HasIndex("BesinlerID");
-
-                    b.ToTable("AksamYemegiBesin");
-                });
-
             modelBuilder.Entity("AppDiet.Domain.Entities.AksamYemegi", b =>
                 {
                     b.Property<int>("ID")
@@ -104,6 +89,12 @@ namespace AppDiet.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("AksamYemegiID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AraOgunID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("DegistirilmeTarihi")
                         .HasColumnType("datetime2");
 
@@ -112,6 +103,9 @@ namespace AppDiet.DAL.Migrations
 
                     b.Property<string>("Fotograf")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("KahvaltiID")
+                        .HasColumnType("int");
 
                     b.Property<int>("Kalori")
                         .HasMaxLength(5)
@@ -122,6 +116,12 @@ namespace AppDiet.DAL.Migrations
                         .HasColumnType("float");
 
                     b.Property<int>("Kategori")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OgleYemegiID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OlusturulmaTarihi")
@@ -146,6 +146,14 @@ namespace AppDiet.DAL.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("AksamYemegiID");
+
+                    b.HasIndex("AraOgunID");
+
+                    b.HasIndex("KahvaltiID");
+
+                    b.HasIndex("OgleYemegiID");
+
                     b.ToTable("Besinler");
 
                     b.HasData(
@@ -158,8 +166,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\TavukGogsu.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 12.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8036),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7630),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 12.0,
@@ -174,8 +183,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\TavukGogsu\\Pilav.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8053),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7649),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 3.0,
@@ -190,8 +200,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\YesilMercimek.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 5.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8057),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7651),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 20.0,
@@ -206,8 +217,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Somon.jpg",
                             Kalori = 80,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8061),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7652),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -222,8 +234,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Karnabahar.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 10.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8065),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7655),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 8.0,
@@ -238,8 +251,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Pirzola.jpg",
                             Kalori = 200,
                             KarbonhidratMiktari = 0.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8069),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7657),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 25.0,
@@ -254,8 +268,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\SebzeliEtliPilav.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8074),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7658),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 10.0,
@@ -270,8 +285,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Kofte.jpg",
                             Kalori = 160,
                             KarbonhidratMiktari = 5.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8078),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7660),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 15.0,
@@ -286,8 +302,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\BalikTava.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 2.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8081),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7661),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 20.0,
@@ -302,8 +319,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Tandir.jpg",
                             Kalori = 250,
                             KarbonhidratMiktari = 5.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8185),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7662),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 30.0,
@@ -318,8 +336,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KiymaliMusakka.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 0.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8189),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7664),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 25.0,
@@ -334,8 +353,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\EtliBulgur.jpg",
                             Kalori = 220,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8191),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7666),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 15.0,
@@ -350,8 +370,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\GuvecteTavuk.jpg",
                             Kalori = 200,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8193),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7668),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 20.0,
@@ -366,8 +387,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\ZeytinyagliSarma.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8195),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7669),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 2.0,
@@ -382,8 +404,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KarnabaharKizartma.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 10.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8197),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7670),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -398,8 +421,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Elma.jpg",
                             Kalori = 50,
                             KarbonhidratMiktari = 12.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8199),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7672),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 1.0,
@@ -414,8 +438,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\YogurtluSalatalik.jpg",
                             Kalori = 30,
                             KarbonhidratMiktari = 5.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8201),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7673),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 2.0,
@@ -430,8 +455,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Badem.jpg",
                             Kalori = 100,
                             KarbonhidratMiktari = 3.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8202),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7716),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 4.0,
@@ -446,8 +472,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Muz.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8204),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7718),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 1.0,
@@ -462,8 +489,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\YulafEzmesi.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8207),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7720),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -478,8 +506,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\HindiDilimiHavuc.jpg",
                             Kalori = 80,
                             KarbonhidratMiktari = 5.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8208),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7721),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 15.0,
@@ -494,8 +523,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\sebzeliomlet",
                             Kalori = 140,
                             KarbonhidratMiktari = 2.5,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8224),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7723),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 10.6,
@@ -510,8 +540,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\tazemeyvesalatasi",
                             Kalori = 43,
                             KarbonhidratMiktari = 11.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8227),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7725),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 0.5,
@@ -526,8 +557,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\yogurtlumusli",
                             Kalori = 250,
                             KarbonhidratMiktari = 37.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8228),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7726),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 8.5,
@@ -542,8 +574,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\misirgevregivesut",
                             Kalori = 150,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8230),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7727),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 5.0,
@@ -558,8 +591,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\tost",
                             Kalori = 200,
                             KarbonhidratMiktari = 25.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8231),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7729),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 8.0,
@@ -574,8 +608,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\granolabar",
                             Kalori = 180,
                             KarbonhidratMiktari = 22.0,
-                            Kategori = 8,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8233),
+                            Kategori = 5,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7730),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 4.0,
@@ -590,8 +625,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\beyazpeynirvezeytin",
                             Kalori = 220,
                             KarbonhidratMiktari = 2.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8235),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7733),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 10.0,
@@ -606,8 +642,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\somonlubagel",
                             Kalori = 250,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8237),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7734),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 12.0,
@@ -622,8 +659,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\yumurtalisandvic",
                             Kalori = 180,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8239),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7735),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 12.0,
@@ -638,8 +676,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\proteinlishake",
                             Kalori = 180,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 6,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8240),
+                            Kategori = 3,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7737),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 20.0,
@@ -654,8 +693,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\tonbaliklisandvic",
                             Kalori = 250,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8242),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7738),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 15.0,
@@ -670,8 +710,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\muzluproteinlipancake",
                             Kalori = 280,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 8,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8243),
+                            Kategori = 5,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7740),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 20.0,
@@ -686,8 +727,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\domatesvepeynirliomlet",
                             Kalori = 180,
                             KarbonhidratMiktari = 4.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8245),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7741),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 12.0,
@@ -702,8 +744,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\sarimsaklipeynirlibaget",
                             Kalori = 220,
                             KarbonhidratMiktari = 28.0,
-                            Kategori = 9,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8246),
+                            Kategori = 6,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7742),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 10.0,
@@ -718,8 +761,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\bademvekuruuzumkarisimi",
                             Kalori = 180,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8248),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7745),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -734,8 +778,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\yogurtlumeyveparcaciklari",
                             Kalori = 120,
                             KarbonhidratMiktari = 25.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8250),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7746),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 3.0,
@@ -750,8 +795,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\havucvehumus",
                             Kalori = 150,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8252),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7748),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 5.0,
@@ -766,8 +812,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\cevizvekuruincir",
                             Kalori = 200,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8254),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7749),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -782,8 +829,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\mandalinadilimleri",
                             Kalori = 50,
                             KarbonhidratMiktari = 12.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8256),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7751),
                             OnayliMi = true,
                             PorsiyonBirimi = 5,
                             ProteinMiktari = 1.0,
@@ -798,8 +846,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\IzgaraTavuk.jpg",
                             Kalori = 165,
                             KarbonhidratMiktari = 0.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8258),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7753),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 31.0,
@@ -814,8 +863,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\BalikIzgara.jpg",
                             Kalori = 136,
                             KarbonhidratMiktari = 0.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8260),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7754),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 25.0,
@@ -830,8 +880,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KiymaIspanak.jpg",
                             Kalori = 190,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8262),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7755),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 10.0,
@@ -846,8 +897,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\CevizKuruKayisi.jpg",
                             Kalori = 140,
                             KarbonhidratMiktari = 10.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8263),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7758),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 4.0,
@@ -862,8 +914,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\SebzeliTavukSote.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8265),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7759),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 25.0,
@@ -878,8 +931,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MercimekKoftesi.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 25.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8267),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7761),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 7.0,
@@ -894,8 +948,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KinoaSalatasi.jpg",
                             Kalori = 200,
                             KarbonhidratMiktari = 25.0,
-                            Kategori = 2,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8269),
+                            Kategori = 1,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7763),
                             OnayliMi = true,
                             PorsiyonBirimi = 1,
                             ProteinMiktari = 10.0,
@@ -910,8 +965,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MantarliTavuk.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8271),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7766),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 22.0,
@@ -926,8 +982,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MercimekCorbasi.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 1,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8272),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7767),
                             OnayliMi = true,
                             PorsiyonBirimi = 4,
                             ProteinMiktari = 7.0,
@@ -942,8 +999,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KarnabaharGraten.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 12.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8274),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7769),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 8.0,
@@ -958,8 +1016,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\KiymaliKabak.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8275),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7770),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 15.0,
@@ -974,8 +1033,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\FirinTavukKanat.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 3,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8277),
+                            Kategori = 2,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7772),
                             OnayliMi = true,
                             PorsiyonBirimi = 2,
                             ProteinMiktari = 20.0,
@@ -990,8 +1050,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MevsimSalatasi.jpg",
                             Kalori = 120,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 2,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8279),
+                            Kategori = 1,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7774),
                             OnayliMi = true,
                             PorsiyonBirimi = 1,
                             ProteinMiktari = 8.0,
@@ -1006,8 +1067,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\Kumpir.jpg",
                             Kalori = 250,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 10,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8280),
+                            Kategori = 7,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7814),
                             OnayliMi = true,
                             PorsiyonBirimi = 1,
                             ProteinMiktari = 10.0,
@@ -1022,8 +1084,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\TonBalikliSalata.jpg",
                             Kalori = 180,
                             KarbonhidratMiktari = 15.0,
-                            Kategori = 2,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8282),
+                            Kategori = 1,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7815),
                             OnayliMi = true,
                             PorsiyonBirimi = 1,
                             ProteinMiktari = 20.0,
@@ -1038,8 +1101,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MuzYulafSmoothie.jpg",
                             Kalori = 150,
                             KarbonhidratMiktari = 30.0,
-                            Kategori = 11,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8284),
+                            Kategori = 8,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7817),
                             OnayliMi = true,
                             PorsiyonBirimi = 3,
                             ProteinMiktari = 5.0,
@@ -1054,8 +1118,9 @@ namespace AppDiet.DAL.Migrations
                             Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\YogurluMeyveSalatasi.jpg",
                             Kalori = 100,
                             KarbonhidratMiktari = 20.0,
-                            Kategori = 2,
-                            OlusturulmaTarihi = new DateTime(2023, 11, 27, 18, 28, 30, 910, DateTimeKind.Local).AddTicks(8286),
+                            Kategori = 1,
+                            Miktar = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(7818),
                             OnayliMi = true,
                             PorsiyonBirimi = 1,
                             ProteinMiktari = 3.0,
@@ -1100,6 +1165,9 @@ namespace AppDiet.DAL.Migrations
 
                     b.Property<int?>("OgleYemegiID")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("OlusturulmaTarihi")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("GunlukDetayId");
 
@@ -1153,6 +1221,9 @@ namespace AppDiet.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("AktifMi")
+                        .HasColumnType("bit");
 
                     b.Property<int>("AktiviteDuzeyi")
                         .HasColumnType("int");
@@ -1212,6 +1283,26 @@ namespace AppDiet.DAL.Migrations
                         .IsUnique();
 
                     b.ToTable("Kullanicilar");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Ad = "Admin",
+                            AktifMi = true,
+                            AktiviteDuzeyi = 4,
+                            Boy = 180,
+                            Cinsiyet = 2,
+                            Durum = 1,
+                            Email = "admin@dietapp.com",
+                            HedefKilo = 71.0,
+                            Kilo = 70.0,
+                            KullaniciTipi = 1,
+                            OlusturulmaTarihi = new DateTime(2023, 12, 3, 13, 25, 7, 344, DateTimeKind.Local).AddTicks(9623),
+                            Sifre = "admin54321",
+                            Soyad = "Admin",
+                            Yas = 25
+                        });
                 });
 
             modelBuilder.Entity("AppDiet.Domain.Entities.OgleYemegi", b =>
@@ -1239,64 +1330,31 @@ namespace AppDiet.DAL.Migrations
                     b.ToTable("OgleYemekleri");
                 });
 
-            modelBuilder.Entity("AraOgunBesin", b =>
+            modelBuilder.Entity("AppDiet.Domain.Entities.Besin", b =>
                 {
-                    b.Property<int>("AraOgunlerID")
-                        .HasColumnType("int");
+                    b.HasOne("AppDiet.Domain.Entities.AksamYemegi", "AksamYemegi")
+                        .WithMany("Besinler")
+                        .HasForeignKey("AksamYemegiID");
 
-                    b.Property<int>("BesinlerID")
-                        .HasColumnType("int");
+                    b.HasOne("AppDiet.Domain.Entities.AraOgun", "AraOgun")
+                        .WithMany("Besinler")
+                        .HasForeignKey("AraOgunID");
 
-                    b.HasKey("AraOgunlerID", "BesinlerID");
+                    b.HasOne("AppDiet.Domain.Entities.Kahvalti", "Kahvalti")
+                        .WithMany("Besinler")
+                        .HasForeignKey("KahvaltiID");
 
-                    b.HasIndex("BesinlerID");
+                    b.HasOne("AppDiet.Domain.Entities.OgleYemegi", "OgleYemegi")
+                        .WithMany("Besinler")
+                        .HasForeignKey("OgleYemegiID");
 
-                    b.ToTable("AraOgunBesin");
-                });
+                    b.Navigation("AksamYemegi");
 
-            modelBuilder.Entity("BesinKahvalti", b =>
-                {
-                    b.Property<int>("BesinlerID")
-                        .HasColumnType("int");
+                    b.Navigation("AraOgun");
 
-                    b.Property<int>("KahvaltilarID")
-                        .HasColumnType("int");
+                    b.Navigation("Kahvalti");
 
-                    b.HasKey("BesinlerID", "KahvaltilarID");
-
-                    b.HasIndex("KahvaltilarID");
-
-                    b.ToTable("BesinKahvalti");
-                });
-
-            modelBuilder.Entity("BesinOgleYemegi", b =>
-                {
-                    b.Property<int>("BesinlerID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OgleYemekleriID")
-                        .HasColumnType("int");
-
-                    b.HasKey("BesinlerID", "OgleYemekleriID");
-
-                    b.HasIndex("OgleYemekleriID");
-
-                    b.ToTable("BesinOgleYemegi");
-                });
-
-            modelBuilder.Entity("AksamYemegiBesin", b =>
-                {
-                    b.HasOne("AppDiet.Domain.Entities.AksamYemegi", null)
-                        .WithMany()
-                        .HasForeignKey("AksamYemekleriID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppDiet.Domain.Entities.Besin", null)
-                        .WithMany()
-                        .HasForeignKey("BesinlerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("OgleYemegi");
                 });
 
             modelBuilder.Entity("AppDiet.Domain.Entities.GunlukDetay", b =>
@@ -1334,63 +1392,24 @@ namespace AppDiet.DAL.Migrations
                     b.Navigation("OgleYemegi");
                 });
 
-            modelBuilder.Entity("AraOgunBesin", b =>
-                {
-                    b.HasOne("AppDiet.Domain.Entities.AraOgun", null)
-                        .WithMany()
-                        .HasForeignKey("AraOgunlerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppDiet.Domain.Entities.Besin", null)
-                        .WithMany()
-                        .HasForeignKey("BesinlerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BesinKahvalti", b =>
-                {
-                    b.HasOne("AppDiet.Domain.Entities.Besin", null)
-                        .WithMany()
-                        .HasForeignKey("BesinlerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppDiet.Domain.Entities.Kahvalti", null)
-                        .WithMany()
-                        .HasForeignKey("KahvaltilarID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BesinOgleYemegi", b =>
-                {
-                    b.HasOne("AppDiet.Domain.Entities.Besin", null)
-                        .WithMany()
-                        .HasForeignKey("BesinlerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppDiet.Domain.Entities.OgleYemegi", null)
-                        .WithMany()
-                        .HasForeignKey("OgleYemekleriID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AppDiet.Domain.Entities.AksamYemegi", b =>
                 {
+                    b.Navigation("Besinler");
+
                     b.Navigation("GunlukDetaylar");
                 });
 
             modelBuilder.Entity("AppDiet.Domain.Entities.AraOgun", b =>
                 {
+                    b.Navigation("Besinler");
+
                     b.Navigation("GunlukDetaylar");
                 });
 
             modelBuilder.Entity("AppDiet.Domain.Entities.Kahvalti", b =>
                 {
+                    b.Navigation("Besinler");
+
                     b.Navigation("GunlukDetaylar");
                 });
 
@@ -1401,6 +1420,8 @@ namespace AppDiet.DAL.Migrations
 
             modelBuilder.Entity("AppDiet.Domain.Entities.OgleYemegi", b =>
                 {
+                    b.Navigation("Besinler");
+
                     b.Navigation("GunlukDetaylar");
                 });
 #pragma warning restore 612, 618

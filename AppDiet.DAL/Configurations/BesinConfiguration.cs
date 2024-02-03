@@ -725,7 +725,7 @@ namespace AppDiet.DAL.Configurations
                     ProteinMiktari = 7,
                     YagMiktari = 1,
                     OnayliMi = true,
-                    Kategori = Kategori.Corba,
+                    Kategori = Kategori.Aperatif,
                     Fotograf = "C:\\Users\\Harun\\Desktop\\BesinData-Resimler\\MercimekCorbasi.jpg"
                 },
                 new Besin

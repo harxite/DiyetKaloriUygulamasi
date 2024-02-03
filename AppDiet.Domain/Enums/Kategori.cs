@@ -8,11 +8,8 @@ namespace AppDiet.Domain.Enums
 {
     public enum Kategori
     {
-        Corba = 1,
-        Salata,
+        Salata = 1,
         AnaYemek,
-        Pilav,
-        Makarna,
         Icecek,
         Tatli,
         Atistirmalik,
